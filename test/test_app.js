@@ -3,13 +3,12 @@ const chaiHttp = require('chai-http');
 const faker = require('faker');
 const mongoose = require('mongoose');
 
-const should = chai.should();
-
 const {DATABASE_URL} = require('../config'); // CHECK THIS
 const {BlogPost} = require('../models'); // CHECK THIS
 const {closeServer, runServer, app} = require('../app'); // CHECK THIS 
 const {TEST_DATABASE_URL} = require('../config'); // CHECK THIS
 
+const should = chai.should();
 chai.use(chaiHttp);
 
 describe('GET', function() {

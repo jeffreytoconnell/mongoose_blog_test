@@ -48,7 +48,18 @@ describe('PUT posts/:id', function(){ //CHECK THIS ID _ID
             done: false // CHECK THIS DUNNO THAT THIS DOES
         })
         .expect(201)
-        .end(finction(err, res) {
+        .end(function(err, res) {
+            done(err);
+        });
+    });
+});
+
+describe('DELETE /posts/:id', function(){
+    it('should delete a post', function(done) {
+        var post = app.db('posts').first();
+        request.put('/posts/' + post.id)
+        expect(201)
+        .end(function(err,res) {
             done(err);
         });
     });

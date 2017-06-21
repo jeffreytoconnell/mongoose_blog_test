@@ -11,6 +11,8 @@ const {TEST_DATABASE_URL} = require('../config'); // CHECK THIS
 const should = chai.should();
 chai.use(chaiHttp);
 
+
+// TESTS GET 
 describe('GET /posts', function(){
     it('should list all on /posts', function(done){
        request.get('/posts')
@@ -18,5 +20,20 @@ describe('GET /posts', function(){
            res.should.have.status(200);
            done();
        });
+    });
+});
+
+// TESTS POST
+describe('POST /posts', function(){
+    it('should save a new post', function(done) {
+        request.post('/posts')
+        .send({
+            title: 'test_run',
+            done: false // CHECK THIS DUNNO WHAT THIS DOES
+        })
+        .expect(201)
+        .end(function(err, res){
+            done(err);
+        });
     });
 });

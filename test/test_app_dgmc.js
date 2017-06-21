@@ -37,3 +37,19 @@ describe('POST /posts', function(){
         });
     });
 });
+
+// TESTS PUT
+describe('PUT posts/:id', function(){ //CHECK THIS ID _ID
+    it('should update a post', function(done){
+        var post = app.db('posts').first(); //CHECK THIS COLLECTION NAME
+        request.put('/posts/' + post.id) //DOUBLE CHECK PATH
+        .send({
+            title: 'testing put',
+            done: false // CHECK THIS DUNNO THAT THIS DOES
+        })
+        .expect(201)
+        .end(finction(err, res) {
+            done(err);
+        });
+    });
+});

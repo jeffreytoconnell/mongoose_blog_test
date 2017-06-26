@@ -2,7 +2,7 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const faker = require('faker');
 const mongoose = require('mongoose');
-
+const request = require('request');
 const {DATABASE_URL} = require('../config'); // CHECK THIS
 const {BlogPost} = require('../models'); // CHECK THIS
 const {closeServer, runServer, app} = require('../app'); // CHECK THIS 
@@ -15,7 +15,7 @@ chai.use(chaiHttp);
 // TESTS GET 
 describe('GET /posts', function(){
     it('should list all on /posts', function(done){
-       request.get('/posts')
+       request.get('http://localhost:8080/posts')
        .end(function(err, res){
            res.should.have.status(200);
            done();

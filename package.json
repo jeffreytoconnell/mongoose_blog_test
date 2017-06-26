@@ -4,12 +4,17 @@
   "description": "simple bookstore app",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "dependencies": {
-    "express":"*",
     "body-parser": "*",
-    "mongoose":"*"
+    "chai": "^4.0.2",
+    "chai-http": "^3.0.0",
+    "express": "*",
+    "faker": "^4.1.0",
+    "mocha": "^3.2.0",
+    "mongoose": "*",
+    "request": "^2.81.0"
   },
   "author": "",
   "license": "ISC"

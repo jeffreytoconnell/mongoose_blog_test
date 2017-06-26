@@ -87,3 +87,16 @@ app.delete('/posts/:_id', function(req, res)  {
 
 app.listen(8080);
 console.log('Running on port 8080...');
+
+function runServer(DATABASE_URL, PORT){
+    return new Promise((resolve, reject) => {
+        mongoose.connect(DATABASE_URL, err => {
+            if (err) {
+                return reject(err);
+            }
+            server = app.listen(PORT, () => {
+                console.log('APP IS LISTENING ON PORT')
+            })
+        })
+    })
+}
